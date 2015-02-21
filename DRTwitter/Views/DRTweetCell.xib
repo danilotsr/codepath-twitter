@@ -13,13 +13,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrh-pI-cSt">
-                        <rect key="frame" x="8" y="8" width="304" height="14"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Q0-eS-dk2">
+                        <rect key="frame" x="44" y="8" width="14" height="14"/>
+                        <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="dwo-T9-b8V"/>
+                            <constraint firstAttribute="width" constant="14" id="GFF-94-RkF"/>
+                            <constraint firstAttribute="height" constant="14" id="sw5-l0-zEe"/>
                         </constraints>
-                    </view>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="João Brunet retweeted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sq6-bj-CeO">
+                        <rect key="frame" x="66" y="8.5" width="127" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mug-LQ-zZI">
+                        <rect key="frame" x="8" y="30" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="EM3-cs-BNK"/>
+                            <constraint firstAttribute="width" constant="50" id="kVQ-XF-6ZU"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Michael Moran" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1b2-an-RY3">
                         <rect key="frame" x="66" y="30" width="97.5" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -38,13 +53,6 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mug-LQ-zZI">
-                        <rect key="frame" x="8" y="30" width="50" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="EM3-cs-BNK"/>
-                            <constraint firstAttribute="width" constant="50" id="kVQ-XF-6ZU"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know you can tell if someone is a programmer simply by saying the word &quot;timezones&quot; and seeing if they cringe?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-o8-fqO">
                         <rect key="frame" x="66" y="52" width="246" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -121,27 +129,29 @@
                 <constraints>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1FQ-1m-wWr"/>
                     <constraint firstAttribute="trailing" secondItem="A9c-1U-3iK" secondAttribute="trailing" constant="8" id="1sd-dk-WtR"/>
-                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="Jrh-pI-cSt" secondAttribute="bottom" constant="8" id="2lF-Wt-RgT"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="top" id="2wE-ug-ptm"/>
                     <constraint firstAttribute="bottom" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="2zv-Lj-kbj"/>
+                    <constraint firstItem="Sq6-bj-CeO" firstAttribute="centerY" secondItem="2Q0-eS-dk2" secondAttribute="centerY" id="3Vi-n8-OML"/>
                     <constraint firstAttribute="bottom" secondItem="Cp2-Oa-Z5g" secondAttribute="bottom" constant="8" id="69n-ec-a1w"/>
                     <constraint firstItem="zhA-o8-fqO" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="8" id="6gz-uI-LbK"/>
+                    <constraint firstItem="2Q0-eS-dk2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="44" id="6nw-Ku-2vJ"/>
+                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="2Q0-eS-dk2" secondAttribute="bottom" constant="8" id="6oD-Dk-vwd"/>
+                    <constraint firstItem="Sq6-bj-CeO" firstAttribute="leading" secondItem="2Q0-eS-dk2" secondAttribute="trailing" constant="8" id="8BD-YE-MSm"/>
                     <constraint firstItem="e8t-AG-Gfh" firstAttribute="leading" secondItem="9Ou-rT-GYc" secondAttribute="trailing" constant="46" id="8YM-WV-8Xo"/>
-                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="Jrh-pI-cSt" secondAttribute="bottom" constant="8" id="8Zp-JL-aHG"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="5" id="8i2-8i-byJ"/>
                     <constraint firstItem="A9c-1U-3iK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ERV-pu-NBC" secondAttribute="trailing" constant="5" id="CY6-9P-kET"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Sq6-bj-CeO" secondAttribute="trailing" constant="8" id="Cc4-4h-BaK"/>
                     <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="66" id="Ddz-ym-NQj"/>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="top" id="HnJ-0V-qJc"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="top" secondItem="A9c-1U-3iK" secondAttribute="top" id="M9k-La-QI4"/>
                     <constraint firstAttribute="trailing" secondItem="zhA-o8-fqO" secondAttribute="trailing" constant="8" id="OL3-3o-Xu8"/>
+                    <constraint firstItem="2Q0-eS-dk2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="QiL-K2-kgo"/>
+                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2Q0-eS-dk2" secondAttribute="bottom" constant="8" id="TEw-fj-KbU"/>
                     <constraint firstItem="1b2-an-RY3" firstAttribute="centerY" secondItem="ERV-pu-NBC" secondAttribute="centerY" id="TmW-rd-ld0"/>
-                    <constraint firstAttribute="trailing" secondItem="Jrh-pI-cSt" secondAttribute="trailing" constant="8" id="UJt-mK-cz4"/>
                     <constraint firstItem="A9c-1U-3iK" firstAttribute="centerY" secondItem="ERV-pu-NBC" secondAttribute="centerY" id="VTP-Ch-7vS"/>
-                    <constraint firstItem="Jrh-pI-cSt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="YIe-9i-NMa"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="Z4t-T9-mwc"/>
                     <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="ZRm-o5-erd"/>
-                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="Jrh-pI-cSt" secondAttribute="bottom" constant="8" id="e9N-gM-S1j"/>
-                    <constraint firstItem="Jrh-pI-cSt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="eE3-7y-dlf"/>
+                    <constraint firstItem="Sq6-bj-CeO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="66" id="bTY-e1-vNW"/>
                     <constraint firstItem="e8t-AG-Gfh" firstAttribute="centerY" secondItem="9Ou-rT-GYc" secondAttribute="centerY" id="f8Z-CR-Htg"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="top" secondItem="mug-LQ-zZI" secondAttribute="top" id="fRN-sC-eRG"/>
                     <constraint firstItem="zhA-o8-fqO" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="8" id="fdE-Bk-RVQ"/>
@@ -149,18 +159,21 @@
                     <constraint firstItem="9Ou-rT-GYc" firstAttribute="leading" secondItem="Cp2-Oa-Z5g" secondAttribute="trailing" constant="46" id="jHP-ek-1be"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="leading" secondItem="1b2-an-RY3" secondAttribute="trailing" constant="5" id="joo-SA-G9e"/>
                     <constraint firstItem="1b2-an-RY3" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="8" id="l7o-RV-6DD"/>
+                    <constraint firstItem="2Q0-eS-dk2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="one-yf-dNJ"/>
                     <constraint firstItem="zhA-o8-fqO" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="5" id="pAJ-BR-guf"/>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="pSl-dz-MjJ"/>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="roe-1N-Xmd"/>
                     <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="centerY" secondItem="9Ou-rT-GYc" secondAttribute="centerY" id="tyU-wp-wm9"/>
+                    <constraint firstItem="Sq6-bj-CeO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uM6-x5-7J7"/>
                     <constraint firstAttribute="bottom" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="zIG-yA-agQ"/>
                     <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="zkQ-Pt-ezJ"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="2lF-Wt-RgT"/>
-                        <exclude reference="e9N-gM-S1j"/>
+                        <exclude reference="6oD-Dk-vwd"/>
                         <exclude reference="pSl-dz-MjJ"/>
+                        <exclude reference="QiL-K2-kgo"/>
+                        <exclude reference="uM6-x5-7J7"/>
                         <exclude reference="geZ-I8-1oM"/>
                         <exclude reference="2zv-Lj-kbj"/>
                         <exclude reference="Z4t-T9-mwc"/>
@@ -179,7 +192,8 @@
                 <outlet property="ownerHandleLabel" destination="ERV-pu-NBC" id="veh-fm-zg7"/>
                 <outlet property="ownerNameLabel" destination="1b2-an-RY3" id="zyi-Td-leD"/>
                 <outlet property="profileImageView" destination="mug-LQ-zZI" id="9oE-0i-rdk"/>
-                <outlet property="retweetedView" destination="Jrh-pI-cSt" id="UoM-OC-g4g"/>
+                <outlet property="retweetIcon" destination="2Q0-eS-dk2" id="N4N-XZ-QtY"/>
+                <outlet property="retweetedLabel" destination="Sq6-bj-CeO" id="oQR-5k-UW3"/>
                 <outlet property="timestampLabel" destination="A9c-1U-3iK" id="pr0-dL-r5T"/>
             </connections>
             <point key="canvasLocation" x="278" y="283.5"/>
