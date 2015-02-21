@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		824DCA5B1A983B9C001A4799 /* DRSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 824DCA5A1A983B9C001A4799 /* DRSessionManager.m */; };
+		824DCA5D1A98757F001A4799 /* DRTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824DCA5C1A98757F001A4799 /* DRTweetCell.xib */; };
 		825D6F401A96DA1300D79498 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D6F3F1A96DA1300D79498 /* main.m */; };
 		825D6F431A96DA1300D79498 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D6F421A96DA1300D79498 /* AppDelegate.m */; };
 		825D6F461A96DA1300D79498 /* DRTwitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 825D6F441A96DA1300D79498 /* DRTwitter.xcdatamodeld */; };
 		825D6F4E1A96DA1300D79498 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825D6F4D1A96DA1300D79498 /* Images.xcassets */; };
 		825D6F511A96DA1300D79498 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825D6F4F1A96DA1300D79498 /* LaunchScreen.xib */; };
 		825D6F5D1A96DA1300D79498 /* DRTwitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D6F5C1A96DA1300D79498 /* DRTwitterTests.m */; };
+		8293A2121A971593007A860A /* DRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8293A2101A971593007A860A /* DRLoginViewController.m */; };
+		8293A2131A971593007A860A /* DRLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8293A2111A971593007A860A /* DRLoginViewController.xib */; };
+		8293A2171A971623007A860A /* DRTwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8293A2161A971623007A860A /* DRTwitterClient.m */; };
+		8293A21E1A971F4F007A860A /* DRTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8293A21D1A971F4F007A860A /* DRTweet.m */; };
+		8293A2211A971F5F007A860A /* DRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8293A2201A971F5F007A860A /* DRUser.m */; };
+		82EF386A1A96DB9D00B3710A /* DRTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EF38681A96DB9D00B3710A /* DRTweetsViewController.m */; };
+		82EF386B1A96DB9D00B3710A /* DRTweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EF38691A96DB9D00B3710A /* DRTweetsViewController.xib */; };
+		82EF38701A96DC8B00B3710A /* DRTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EF386E1A96DC8B00B3710A /* DRTweetCell.m */; };
+		85342135F31E0171BB7326B6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 913664E43B9FF3F60BE56CF5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4BC0570491BBE56C6D90738C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		80D422A705D3662B47BCE2C0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		824DCA591A983B9C001A4799 /* DRSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRSessionManager.h; path = Models/DRSessionManager.h; sourceTree = "<group>"; };
+		824DCA5A1A983B9C001A4799 /* DRSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRSessionManager.m; path = Models/DRSessionManager.m; sourceTree = "<group>"; };
+		824DCA5C1A98757F001A4799 /* DRTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRTweetCell.xib; path = Views/DRTweetCell.xib; sourceTree = "<group>"; };
 		825D6F3A1A96DA1300D79498 /* DRTwitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRTwitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		825D6F3E1A96DA1300D79498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825D6F3F1A96DA1300D79498 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,6 +53,21 @@
 		825D6F561A96DA1300D79498 /* DRTwitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRTwitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		825D6F5B1A96DA1300D79498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825D6F5C1A96DA1300D79498 /* DRTwitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRTwitterTests.m; sourceTree = "<group>"; };
+		8293A20F1A971593007A860A /* DRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRLoginViewController.h; path = "View Controllers/DRLoginViewController.h"; sourceTree = "<group>"; };
+		8293A2101A971593007A860A /* DRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRLoginViewController.m; path = "View Controllers/DRLoginViewController.m"; sourceTree = "<group>"; };
+		8293A2111A971593007A860A /* DRLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRLoginViewController.xib; path = "View Controllers/DRLoginViewController.xib"; sourceTree = "<group>"; };
+		8293A2151A971623007A860A /* DRTwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTwitterClient.h; path = API/DRTwitterClient.h; sourceTree = "<group>"; };
+		8293A2161A971623007A860A /* DRTwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTwitterClient.m; path = API/DRTwitterClient.m; sourceTree = "<group>"; };
+		8293A21C1A971F4F007A860A /* DRTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTweet.h; path = Models/DRTweet.h; sourceTree = "<group>"; };
+		8293A21D1A971F4F007A860A /* DRTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTweet.m; path = Models/DRTweet.m; sourceTree = "<group>"; };
+		8293A21F1A971F5F007A860A /* DRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRUser.h; path = Models/DRUser.h; sourceTree = "<group>"; };
+		8293A2201A971F5F007A860A /* DRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRUser.m; path = Models/DRUser.m; sourceTree = "<group>"; };
+		82EF38671A96DB9D00B3710A /* DRTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTweetsViewController.h; path = "View Controllers/DRTweetsViewController.h"; sourceTree = "<group>"; };
+		82EF38681A96DB9D00B3710A /* DRTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTweetsViewController.m; path = "View Controllers/DRTweetsViewController.m"; sourceTree = "<group>"; };
+		82EF38691A96DB9D00B3710A /* DRTweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRTweetsViewController.xib; path = "View Controllers/DRTweetsViewController.xib"; sourceTree = "<group>"; };
+		82EF386D1A96DC8B00B3710A /* DRTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTweetCell.h; path = Views/DRTweetCell.h; sourceTree = "<group>"; };
+		82EF386E1A96DC8B00B3710A /* DRTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTweetCell.m; path = Views/DRTweetCell.m; sourceTree = "<group>"; };
+		913664E43B9FF3F60BE56CF5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85342135F31E0171BB7326B6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,12 +89,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37F5FEC72216B3B3E219CE1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				913664E43B9FF3F60BE56CF5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		562F394524BE85E5669178FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BC0570491BBE56C6D90738C /* Pods.debug.xcconfig */,
+				80D422A705D3662B47BCE2C0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		825D6F311A96DA1300D79498 = {
 			isa = PBXGroup;
 			children = (
 				825D6F3C1A96DA1300D79498 /* DRTwitter */,
 				825D6F591A96DA1300D79498 /* DRTwitterTests */,
 				825D6F3B1A96DA1300D79498 /* Products */,
+				562F394524BE85E5669178FB /* Pods */,
+				37F5FEC72216B3B3E219CE1D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +129,9 @@
 		825D6F3C1A96DA1300D79498 /* DRTwitter */ = {
 			isa = PBXGroup;
 			children = (
+				8293A2181A971F22007A860A /* Models */,
+				8293A2141A9715FD007A860A /* API */,
+				82EF386C1A96DC7100B3710A /* Views */,
 				825D6F661A96DA5D00D79498 /* View Controllers */,
 				825D6F411A96DA1300D79498 /* AppDelegate.h */,
 				825D6F421A96DA1300D79498 /* AppDelegate.m */,
@@ -118,8 +172,46 @@
 		825D6F661A96DA5D00D79498 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				82EF38671A96DB9D00B3710A /* DRTweetsViewController.h */,
+				82EF38681A96DB9D00B3710A /* DRTweetsViewController.m */,
+				82EF38691A96DB9D00B3710A /* DRTweetsViewController.xib */,
+				8293A20F1A971593007A860A /* DRLoginViewController.h */,
+				8293A2101A971593007A860A /* DRLoginViewController.m */,
+				8293A2111A971593007A860A /* DRLoginViewController.xib */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8293A2141A9715FD007A860A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8293A2151A971623007A860A /* DRTwitterClient.h */,
+				8293A2161A971623007A860A /* DRTwitterClient.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		8293A2181A971F22007A860A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8293A21C1A971F4F007A860A /* DRTweet.h */,
+				8293A21D1A971F4F007A860A /* DRTweet.m */,
+				8293A21F1A971F5F007A860A /* DRUser.h */,
+				8293A2201A971F5F007A860A /* DRUser.m */,
+				824DCA591A983B9C001A4799 /* DRSessionManager.h */,
+				824DCA5A1A983B9C001A4799 /* DRSessionManager.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		82EF386C1A96DC7100B3710A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82EF386D1A96DC8B00B3710A /* DRTweetCell.h */,
+				82EF386E1A96DC8B00B3710A /* DRTweetCell.m */,
+				824DCA5C1A98757F001A4799 /* DRTweetCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 825D6F601A96DA1300D79498 /* Build configuration list for PBXNativeTarget "DRTwitter" */;
 			buildPhases = (
+				7F5269EC9D3F3FE2DC081D30 /* Check Pods Manifest.lock */,
 				825D6F361A96DA1300D79498 /* Sources */,
 				825D6F371A96DA1300D79498 /* Frameworks */,
 				825D6F381A96DA1300D79498 /* Resources */,
+				79FFD5892176942E6C381B82 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,7 +296,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82EF386B1A96DB9D00B3710A /* DRTweetsViewController.xib in Resources */,
 				825D6F511A96DA1300D79498 /* LaunchScreen.xib in Resources */,
+				8293A2131A971593007A860A /* DRLoginViewController.xib in Resources */,
+				824DCA5D1A98757F001A4799 /* DRTweetCell.xib in Resources */,
 				825D6F4E1A96DA1300D79498 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,13 +313,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		79FFD5892176942E6C381B82 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F5269EC9D3F3FE2DC081D30 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		825D6F361A96DA1300D79498 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82EF386A1A96DB9D00B3710A /* DRTweetsViewController.m in Sources */,
+				8293A2171A971623007A860A /* DRTwitterClient.m in Sources */,
 				825D6F431A96DA1300D79498 /* AppDelegate.m in Sources */,
+				8293A21E1A971F4F007A860A /* DRTweet.m in Sources */,
+				8293A2121A971593007A860A /* DRLoginViewController.m in Sources */,
 				825D6F461A96DA1300D79498 /* DRTwitter.xcdatamodeld in Sources */,
+				824DCA5B1A983B9C001A4799 /* DRSessionManager.m in Sources */,
+				82EF38701A96DC8B00B3710A /* DRTweetCell.m in Sources */,
+				8293A2211A971F5F007A860A /* DRUser.m in Sources */,
 				825D6F401A96DA1300D79498 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +472,7 @@
 		};
 		825D6F611A96DA1300D79498 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC0570491BBE56C6D90738C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DRTwitter/Info.plist;
@@ -345,6 +483,7 @@
 		};
 		825D6F621A96DA1300D79498 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80D422A705D3662B47BCE2C0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DRTwitter/Info.plist;
@@ -406,6 +545,7 @@
 				825D6F621A96DA1300D79498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		825D6F631A96DA1300D79498 /* Build configuration list for PBXNativeTarget "DRTwitterTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +554,7 @@
 				825D6F651A96DA1300D79498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

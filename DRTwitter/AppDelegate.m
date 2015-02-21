@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "DRTweetsViewController.h"
+#import "DRLoginViewController.h"
+#import "DRTwitterClient.h"
+#import "DRTweet.h"
+#import "DRSessionManager.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +21,27 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userDidLogout)
+                                                 name:UserDidLogoutNotification
+                                               object:nil];
+
+    if ([DRSessionManager currentUser]) {
+        DRTweetsViewController *tweetsVC = [[DRTweetsViewController alloc] initWithUser:[DRSessionManager currentUser]];
+        UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:tweetsVC];
+        self.window.rootViewController = navigationVC;
+    } else {
+        self.window.rootViewController = [[DRLoginViewController alloc] init];
+    }
+
+    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)userDidLogout {
+    self.window.rootViewController = [[DRLoginViewController alloc] init];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -42,6 +66,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [[DRTwitterClient sharedInstance] openURL:url];
+    return YES;
 }
 
 #pragma mark - Core Data stack
