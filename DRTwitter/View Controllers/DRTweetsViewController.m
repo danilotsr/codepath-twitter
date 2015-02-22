@@ -11,12 +11,16 @@
 #import "DRTwitterClient.h"
 #import "DRLoginViewController.h"
 #import "DRSessionManager.h"
+#import "DRComposeViewController.h"
 
-@interface DRTweetsViewController () <UITableViewDataSource, UITableViewDelegate>
+NSString * const kTweetCell = @"TweetCell";
+
+@interface DRTweetsViewController () <UITableViewDataSource, UITableViewDelegate, DRComposeViewControllerDelegate>
 
 @property (nonatomic, strong) DRUser *user;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *tweets;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSMutableArray *tweets;
 
 @end
 
@@ -35,27 +39,44 @@
     self.navigationItem.title = @"Home";
     self.navigationController.navigationBar.opaque = YES;
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(onLogout)];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
-                                                                             action:@selector(onLogout)];
+                                                                             action:@selector(onNewTapped)];
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl beginRefreshing];
+    [self.refreshControl addTarget:self action:@selector(downloadTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView registerNib:[UINib nibWithNibName:@"DRTweetCell" bundle:nil] forCellReuseIdentifier:@"DRTweetCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DRTweetCell" bundle:nil] forCellReuseIdentifier:kTweetCell];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 43;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
+    [self downloadTweets];
+}
+
+- (void)downloadTweetsWithRefreshControl {
+    [self.refreshControl beginRefreshing];
     [self downloadTweets];
 }
 
 - (void)downloadTweets {
     [[DRTwitterClient sharedInstance] homeTimelineWithParams:nil
                                                   completion:^(NSArray *tweets, NSError *error) {
+                                                      [self.refreshControl endRefreshing];
                                                       if (error) {
                                                           NSLog(@"failed: %@", error);
                                                       } else {
-                                                          self.tweets = tweets;
+                                                          self.tweets = [NSMutableArray arrayWithArray:tweets];
                                                           [self.tableView reloadData];
                                                       }
                                                   }];
@@ -68,6 +89,17 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:UserDidLogoutNotification object:nil];
 }
 
+- (void)onNewTapped {
+    DRComposeViewController *composeVC = [[DRComposeViewController alloc] init];
+    composeVC.delegate = self;
+    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:composeVC];
+    [self presentViewController:navigationVC animated:YES completion:nil];
+}
+
+- (void)composeViewController:(DRComposeViewController *)composeViewController didPostTweet:(DRTweet *)tweet {
+    [self.tweets insertObject:tweet atIndex:0];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -78,7 +110,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DRTweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DRTweetCell" forIndexPath:indexPath];
+    DRTweetCell *cell = [tableView dequeueReusableCellWithIdentifier:kTweetCell forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.tweet = self.tweets[indexPath.row];
     return cell;

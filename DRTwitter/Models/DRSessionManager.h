@@ -16,6 +16,8 @@ extern NSString * const UserDidLogoutNotification;
 
 + (DRUser *)currentUser;
 + (void)setCurrentUser:(DRUser *)user;
++ (NSString *)pendingTweetMessage;
++ (void)setPendingTweetMessage:(NSString *)pendingTweetMessage;
 + (void)logout;
 
 @end

@@ -19,5 +19,6 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)tweetsWithArray:(NSArray *)array;
 - (NSString *)shortCreatedAt;
+- (BOOL)wasRetweeded;
 
 @end

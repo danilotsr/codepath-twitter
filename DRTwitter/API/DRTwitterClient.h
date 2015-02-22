@@ -8,6 +8,7 @@
 
 #import "BDBOAuth1RequestOperationManager.h"
 #import "DRUser.h"
+#import "DRTweet.h"
 
 @interface DRTwitterClient : BDBOAuth1RequestOperationManager
 
@@ -17,5 +18,6 @@
 - (void)openURL:(NSURL *)url;
 
 - (void)homeTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion;
+- (void)postStatusWithMessage:(NSString *)message completion:(void (^)(DRTweet *tweet, NSError *error))completion;
 
 @end

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DRComposeViewController">
+            <connections>
+                <outlet property="nameLabel" destination="x8D-GL-uif" id="pvY-ou-zSk"/>
+                <outlet property="profileImageView" destination="XXV-Kd-nSo" id="YyG-I3-ZmB"/>
+                <outlet property="textView" destination="yGY-os-Teq" id="ehA-fN-fdb"/>
+                <outlet property="userNameLabel" destination="nNo-uL-TFf" id="KpF-JR-vom"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XXV-Kd-nSo">
+                    <rect key="frame" x="8" y="74" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="2hN-RC-iRy"/>
+                        <constraint firstAttribute="width" constant="50" id="uOQ-8h-oyk"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@danilotsr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNo-uL-TFf">
+                    <rect key="frame" x="66" y="104.5" width="58" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGY-os-Teq">
+                    <rect key="frame" x="8" y="132" width="304" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="esQ-m0-9u5"/>
+                        <constraint firstAttribute="height" constant="80" id="fKv-3d-fvN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="esQ-m0-9u5"/>
+                        </mask>
+                    </variation>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danilo Resende" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8D-GL-uif">
+                    <rect key="frame" x="66" y="79" width="104" height="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="yGY-os-Teq" secondAttribute="trailing" constant="8" id="0bO-Jm-Jaf"/>
+                <constraint firstItem="nNo-uL-TFf" firstAttribute="bottom" secondItem="XXV-Kd-nSo" secondAttribute="bottom" id="7hQ-B9-puH"/>
+                <constraint firstItem="yGY-os-Teq" firstAttribute="top" secondItem="XXV-Kd-nSo" secondAttribute="bottom" constant="8" id="Hes-Pz-uMw"/>
+                <constraint firstItem="nNo-uL-TFf" firstAttribute="leading" secondItem="XXV-Kd-nSo" secondAttribute="trailing" constant="8" id="Pby-gb-u7P"/>
+                <constraint firstItem="x8D-GL-uif" firstAttribute="top" secondItem="XXV-Kd-nSo" secondAttribute="top" constant="5" id="QT3-3Q-nnd"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yGY-os-Teq" secondAttribute="bottom" constant="8" id="QpN-uD-Lj9"/>
+                <constraint firstItem="XXV-Kd-nSo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="ZX4-ye-bmJ"/>
+                <constraint firstItem="XXV-Kd-nSo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="aCp-XV-wUT"/>
+                <constraint firstItem="nNo-uL-TFf" firstAttribute="bottom" secondItem="XXV-Kd-nSo" secondAttribute="bottom" constant="-5" id="aEe-ku-mb4"/>
+                <constraint firstItem="yGY-os-Teq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="edU-Ew-kBB"/>
+                <constraint firstItem="x8D-GL-uif" firstAttribute="leading" secondItem="XXV-Kd-nSo" secondAttribute="trailing" constant="8" id="os5-3p-LAd"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7hQ-B9-puH"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

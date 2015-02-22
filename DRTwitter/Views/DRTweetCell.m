@@ -42,6 +42,8 @@
 }
 
 - (void)setTweet:(DRTweet *)rawTweet {
+    _tweet = rawTweet;
+
     DRTweet *tweet = rawTweet;
 
     if ([rawTweet wasRetweeded]) {
@@ -50,7 +52,6 @@
     }
     self.retweetedLabel.hidden = ![rawTweet wasRetweeded];
     self.retweetIcon.hidden = ![rawTweet wasRetweeded];
-    // FIXME: remove extra empty space when tweet was not retweeded
 
     self.messageLabel.text = tweet.text;
     self.ownerNameLabel.text = tweet.user.name;
@@ -59,27 +60,29 @@
     [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.user.profileImageURL]];
 
     self.timestampLabel.text = [tweet shortCreatedAt];
+
+    [self setNeedsUpdateConstraints];
 }
 
-//- (void)updateConstraints {
-//    [super updateConstraints];
-//
-//    if (self.retweetedView) {
-//        UIImageView __weak *profileImageView = self.profileImageView;
-//        UIView __weak *retweetedView = self.retweetedView;
-//        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(profileImageView, retweetedView);
-//        NSMutableArray *constraints = [NSMutableArray array];
-//        NSArray *visualConstraints = @[@"|-8-[retweetedView]-8-|", @"V:|-8-[retweetedView]", @"V:[retweetedView]-8-[profileImageView]"];
-//        for (NSString *visualConstraint in visualConstraints) {
-//            [constraints addObjectsFromArray: [NSLayoutConstraint
-//                                               constraintsWithVisualFormat:visualConstraint
-//                                               options:0
-//                                               metrics:nil
-//                                               views:viewsDict]];
-//        }
-//        [self addConstraints:constraints];
-//    }
-//    [self layoutIfNeeded];
-//}
+NSInteger const kTopMarginRetweeted = 8;
+NSInteger const kTopMarginRegularTweet = -14;
+
+- (void)updateConstraints {
+    [super updateConstraints];
+
+    NSLayoutConstraint *constraint = [self findConstraintForRetweetedHeader];
+    constraint.constant = [self.tweet wasRetweeded] ? kTopMarginRetweeted : kTopMarginRegularTweet;
+}
+
+- (NSLayoutConstraint *)findConstraintForRetweetedHeader {
+    NSArray *constraints = self.contentView.constraints;
+    for (NSLayoutConstraint *constraint in constraints) {
+        if ([self.profileImageView isEqual:constraint.firstItem] &&
+            [self.retweetIcon isEqual:constraint.secondItem]) {
+            return constraint;
+        }
+    }
+    return nil;
+}
 
 @end

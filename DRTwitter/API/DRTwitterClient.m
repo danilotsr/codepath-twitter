@@ -47,8 +47,6 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
                               scope:nil
                             success:^(BDBOAuth1Credential *requestToken) {
                                 NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", requestToken.token]];
-                                NSLog(@"Got request token: %@", requestToken);
-                                NSLog(@"authURL: %@", authURL);
                                 [[UIApplication sharedApplication] openURL:authURL];
                             } failure:^(NSError *error) {
                                 self.loginCompletion(nil, error);
@@ -61,7 +59,6 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
                             method:@"POST"
                       requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query]
                            success:^(BDBOAuth1Credential *accessToken) {
-                               NSLog(@"Got the access token: %@", accessToken);
                                [self.requestSerializer saveAccessToken:accessToken];
 
                                [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -86,6 +83,16 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           completion(nil, error);
       }];
+}
+
+- (void)postStatusWithMessage:(NSString *)message completion:(void (^)(DRTweet *, NSError *))completion {
+    [self POST:@"1.1/statuses/update.json"
+    parameters:@{@"status": message}
+       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       completion([[DRTweet alloc] initWithDictionary:responseObject], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
 }
 
 @end

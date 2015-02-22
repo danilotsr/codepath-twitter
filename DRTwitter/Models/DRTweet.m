@@ -52,4 +52,8 @@
     return [NSString stringWithFormat:@"%.0fw", elapsedTime / 7 * 86400];
 }
 
+- (BOOL)wasRetweeded {
+    return self.retweetSource != nil;
+}
+
 @end

@@ -9,13 +9,15 @@
 #import "DRSessionManager.h"
 #import "DRTwitterClient.h"
 
-NSString * const kCurrentUserKey = @"current_user";
+NSString * const kCurrentUserKey = @"kCurrentUserKey";
+NSString * const kPendingTweetMessage = @"kPendingTweetMessage";
 NSString * const UserDidLoginNotification = @"UserDidLoginNotification";
 NSString * const UserDidLogoutNotification = @"UserDidLogoutNotification";
 
 @implementation DRSessionManager
 
 static DRUser *_currentUser;
+static NSString *_pendingTweetMessage;
 
 + (DRUser *)currentUser {
     if (!_currentUser) {
@@ -39,8 +41,22 @@ static DRUser *_currentUser;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++ (NSString *)pendingTweetMessage {
+    if (!_pendingTweetMessage) {
+        _pendingTweetMessage = [[NSUserDefaults standardUserDefaults] objectForKey:kPendingTweetMessage];
+    }
+    return _pendingTweetMessage;
+}
+
++ (void)setPendingTweetMessage:(NSString *)pendingTweetMessage {
+    _pendingTweetMessage = pendingTweetMessage;
+    [[NSUserDefaults standardUserDefaults] setObject:_pendingTweetMessage forKey:kPendingTweetMessage];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 + (void)logout {
     [DRSessionManager setCurrentUser:nil];
+    [DRSessionManager setPendingTweetMessage:nil];
     [[DRTwitterClient sharedInstance].requestSerializer removeAccessToken];
 }
 
