@@ -25,6 +25,9 @@
         if (dictionary[@"retweeted_status"]) {
             self.retweetSource = [[DRTweet alloc] initWithDictionary:dictionary[@"retweeted_status"]];
         }
+
+        self.retweetsCount = [dictionary[@"retweet_count"] integerValue];
+        self.favoritesCount = [dictionary[@"favorite_count"] integerValue];
     }
     return self;
 }

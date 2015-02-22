@@ -12,6 +12,7 @@
 #import "DRLoginViewController.h"
 #import "DRSessionManager.h"
 #import "DRComposeViewController.h"
+#import "DRTweetDetailsViewController.h"
 
 NSString * const kTweetCell = @"TweetCell";
 
@@ -114,6 +115,12 @@ NSString * const kTweetCell = @"TweetCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.tweet = self.tweets[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DRTweetDetailsViewController *detailsVC = [[DRTweetDetailsViewController alloc] init];
+    detailsVC.tweet = self.tweets[indexPath.row];
+    [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
 @end

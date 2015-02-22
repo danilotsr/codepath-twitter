@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82213C271A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82213C251A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m */; };
+		82213C281A9A3FFD00E8BA7B /* DRTweetDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82213C261A9A3FFD00E8BA7B /* DRTweetDetailsViewController.xib */; };
 		824DCA5B1A983B9C001A4799 /* DRSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 824DCA5A1A983B9C001A4799 /* DRSessionManager.m */; };
 		824DCA5D1A98757F001A4799 /* DRTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824DCA5C1A98757F001A4799 /* DRTweetCell.xib */; };
 		825D6F401A96DA1300D79498 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D6F3F1A96DA1300D79498 /* main.m */; };
@@ -41,6 +43,9 @@
 /* Begin PBXFileReference section */
 		4BC0570491BBE56C6D90738C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		80D422A705D3662B47BCE2C0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		82213C241A9A3FFD00E8BA7B /* DRTweetDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTweetDetailsViewController.h; path = "View Controllers/DRTweetDetailsViewController.h"; sourceTree = "<group>"; };
+		82213C251A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTweetDetailsViewController.m; path = "View Controllers/DRTweetDetailsViewController.m"; sourceTree = "<group>"; };
+		82213C261A9A3FFD00E8BA7B /* DRTweetDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRTweetDetailsViewController.xib; path = "View Controllers/DRTweetDetailsViewController.xib"; sourceTree = "<group>"; };
 		824DCA591A983B9C001A4799 /* DRSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRSessionManager.h; path = Models/DRSessionManager.h; sourceTree = "<group>"; };
 		824DCA5A1A983B9C001A4799 /* DRSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRSessionManager.m; path = Models/DRSessionManager.m; sourceTree = "<group>"; };
 		824DCA5C1A98757F001A4799 /* DRTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRTweetCell.xib; path = Views/DRTweetCell.xib; sourceTree = "<group>"; };
@@ -186,6 +191,9 @@
 				8286833A1A9957DB0028D72D /* DRComposeViewController.h */,
 				8286833B1A9957DB0028D72D /* DRComposeViewController.m */,
 				8286833C1A9957DB0028D72D /* DRComposeViewController.xib */,
+				82213C241A9A3FFD00E8BA7B /* DRTweetDetailsViewController.h */,
+				82213C251A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m */,
+				82213C261A9A3FFD00E8BA7B /* DRTweetDetailsViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -308,6 +316,7 @@
 				825D6F511A96DA1300D79498 /* LaunchScreen.xib in Resources */,
 				8293A2131A971593007A860A /* DRLoginViewController.xib in Resources */,
 				824DCA5D1A98757F001A4799 /* DRTweetCell.xib in Resources */,
+				82213C281A9A3FFD00E8BA7B /* DRTweetDetailsViewController.xib in Resources */,
 				825D6F4E1A96DA1300D79498 /* Images.xcassets in Resources */,
 				8286833E1A9957DB0028D72D /* DRComposeViewController.xib in Resources */,
 			);
@@ -365,6 +374,7 @@
 				825D6F431A96DA1300D79498 /* AppDelegate.m in Sources */,
 				8293A21E1A971F4F007A860A /* DRTweet.m in Sources */,
 				8293A2121A971593007A860A /* DRLoginViewController.m in Sources */,
+				82213C271A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m in Sources */,
 				825D6F461A96DA1300D79498 /* DRTwitter.xcdatamodeld in Sources */,
 				824DCA5B1A983B9C001A4799 /* DRSessionManager.m in Sources */,
 				82EF38701A96DC8B00B3710A /* DRTweetCell.m in Sources */,

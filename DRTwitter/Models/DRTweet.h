@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) DRUser *user;
 @property (nonatomic, strong) DRTweet *retweetSource;
+@property (nonatomic, assign) NSInteger retweetsCount;
+@property (nonatomic, assign) NSInteger favoritesCount;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)tweetsWithArray:(NSArray *)array;
