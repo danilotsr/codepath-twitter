@@ -87,8 +87,8 @@ NSString * const kFavorites = @"FAVORITES";
 - (void)updateCountersView {
     self.retweetsLabel.text = self.originalTweet.retweetsCount > 1 ? kRetweets : kRetweet;
     self.favoritesLabel.text = self.originalTweet.favoritesCount > 1 ? kFavorites : kFavorite;
-    self.retweetsCountLabel.text = [NSString stringWithFormat:@"%d", self.originalTweet.retweetsCount];
-    self.favoritesCountLabel.text = [NSString stringWithFormat:@"%d", self.originalTweet.favoritesCount];
+    self.retweetsCountLabel.text = [NSString stringWithFormat:@"%ld", self.originalTweet.retweetsCount];
+    self.favoritesCountLabel.text = [NSString stringWithFormat:@"%ld", self.originalTweet.favoritesCount];
 
     self.retweetButton.selected = self.originalTweet.retweeted;
     self.favoriteButton.selected = self.originalTweet.favorited;

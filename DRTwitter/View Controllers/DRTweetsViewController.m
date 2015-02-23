@@ -109,6 +109,7 @@ NSString * const kTweetCell = @"TweetCell";
              for (DRTweet *tweet in tweets) {
                  if (![self.seenTweetIDs containsObject:tweet.tweetID]) {
                      [self.tweets addObject:tweet];
+                     [self.seenTweetIDs addObject:tweet.tweetID];
                  }
              }
              [self.tableView reloadData];

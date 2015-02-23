@@ -56,7 +56,6 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
 }
 
 - (void)openURL:(NSURL *)url {
-    NSLog(@"openURL: %@", url);
     [self fetchAccessTokenWithPath:@"oauth/access_token"
                             method:@"POST"
                       requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query]
@@ -91,7 +90,7 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
                   replyTarget:(DRTweet *)replyTarget
                    completion:(void (^)(DRTweet *, NSError *))completion {
     [self POST:@"1.1/statuses/update.json"
-    parameters:@{@"status": message, @"in_reply_to_status_id":replyTarget.tweetID}
+    parameters:@{@"status": message ?: [NSNull null], @"in_reply_to_status_id":replyTarget.tweetID ?: [NSNull null]}
        success:^(AFHTTPRequestOperation *operation, id responseObject) {
        BLOCK_SAFE_RUN(completion, [[DRTweet alloc] initWithDictionary:responseObject], nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

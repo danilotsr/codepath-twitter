@@ -146,7 +146,7 @@ NSInteger const kMaxTextLength = 140;
     }
 
     [UIView performWithoutAnimation:^{
-        self.counterBarButton.title = [NSString stringWithFormat:@"%d", [self getRemainingSize]];
+        self.counterBarButton.title = [NSString stringWithFormat:@"%ld", [self getRemainingSize]];
     }];
 }
 
