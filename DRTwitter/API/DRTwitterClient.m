@@ -89,8 +89,13 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
 - (void)postStatusWithMessage:(NSString *)message
                   replyTarget:(DRTweet *)replyTarget
                    completion:(void (^)(DRTweet *, NSError *))completion {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = message;
+    if (replyTarget) {
+        params[@"in_reply_to_status_id"] = replyTarget.tweetID;
+    }
     [self POST:@"1.1/statuses/update.json"
-    parameters:@{@"status": message ?: [NSNull null], @"in_reply_to_status_id":replyTarget.tweetID ?: [NSNull null]}
+    parameters:params
        success:^(AFHTTPRequestOperation *operation, id responseObject) {
        BLOCK_SAFE_RUN(completion, [[DRTweet alloc] initWithDictionary:responseObject], nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

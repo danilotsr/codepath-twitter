@@ -27,17 +27,25 @@
                                              selector:@selector(userDidLogout)
                                                  name:UserDidLogoutNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userDidLogin)
+                                                 name:UserDidLoginNotification
+                                               object:nil];
 
     if ([DRSessionManager currentUser]) {
-        DRTweetsViewController *tweetsVC = [[DRTweetsViewController alloc] initWithUser:[DRSessionManager currentUser]];
-        UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:tweetsVC];
-        self.window.rootViewController = navigationVC;
+        [self userDidLogin];
     } else {
-        self.window.rootViewController = [[DRLoginViewController alloc] init];
+        [self userDidLogout];
     }
 
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)userDidLogin {
+    DRTweetsViewController *tweetsVC = [[DRTweetsViewController alloc] initWithUser:[DRSessionManager currentUser]];
+    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:tweetsVC];
+    self.window.rootViewController = navigationVC;
 }
 
 - (void)userDidLogout {

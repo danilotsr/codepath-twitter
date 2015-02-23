@@ -9,6 +9,7 @@
 #import "DRLoginViewController.h"
 #import "DRTwitterClient.h"
 #import "DRTweetsViewController.h"
+#import "DRSessionManager.h"
 
 NSString * const kTwitterAuthorizeURL = @"https://api.twitter.com/oauth/authorize";
 
@@ -31,16 +32,14 @@ NSString * const kTwitterAuthorizeURL = @"https://api.twitter.com/oauth/authoriz
 - (IBAction)onLoginWithTwitter:(id)sender {
     [[DRTwitterClient sharedInstance] loginWithCompletion:^(DRUser *user, NSError *error) {
         if (user) {
-            DRTweetsViewController *tweetsVC = [[DRTweetsViewController alloc] initWithUser:user];
-            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:tweetsVC];
-            [self.navigationController presentViewController:navigationVC animated:YES completion:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:UserDidLoginNotification object:nil];
         } else {
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Unable to login"
                                                                              message:error.localizedDescription
                                                                       preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
             [alertVC addAction:alertAction];
-            [self.navigationController presentViewController:alertVC animated:YES completion:nil];
+            [self presentViewController:alertVC animated:YES completion:nil];
         }
     }];
 }
