@@ -14,6 +14,8 @@ NSString * const kTwitterConsumerKey = @"B5d3bSLLRMkL6lSZ0UArW5UQ3";
 NSString * const kTwitterConsumerSecret = @"NDeJITK035Gjy6hp6yzVjK9aiHfwTguCgiYwnyShPfJbm24bEl";
 NSString * const kTwitterBaseURL = @"https://api.twitter.com";
 
+#define BLOCK_SAFE_RUN(block, ...) block ? block(__VA_ARGS__) : nil
+
 @interface DRTwitterClient()
 
 @property (nonatomic, strong) void (^loginCompletion)(DRUser *user, NSError *error);
@@ -79,20 +81,64 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
     [self GET:@"1.1/statuses/home_timeline.json"
    parameters:params
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          completion([DRTweet tweetsWithArray:responseObject], nil);
+          BLOCK_SAFE_RUN(completion, [DRTweet tweetsWithArray:responseObject], nil);
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          completion(nil, error);
+          BLOCK_SAFE_RUN(completion, nil, error);
       }];
 }
 
-- (void)postStatusWithMessage:(NSString *)message completion:(void (^)(DRTweet *, NSError *))completion {
+- (void)postStatusWithMessage:(NSString *)message
+                  replyTarget:(DRTweet *)replyTarget
+                   completion:(void (^)(DRTweet *, NSError *))completion {
     [self POST:@"1.1/statuses/update.json"
-    parameters:@{@"status": message}
+    parameters:@{@"status": message, @"in_reply_to_status_id":replyTarget.tweetID}
        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       completion([[DRTweet alloc] initWithDictionary:responseObject], nil);
+       BLOCK_SAFE_RUN(completion, [[DRTweet alloc] initWithDictionary:responseObject], nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        completion(nil, error);
+        BLOCK_SAFE_RUN(completion, nil, error);
     }];
+}
+
+- (void)retweet:(DRTweet *)originalTweet completion:(void (^)(DRTweet *retweet, NSError *error))completion {
+    [self POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", originalTweet.tweetID]
+    parameters:nil
+       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+           BLOCK_SAFE_RUN(completion, [[DRTweet alloc] initWithDictionary:responseObject], nil);
+       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+           BLOCK_SAFE_RUN(completion, nil, error);
+       }];
+}
+
+- (void)favorite:(DRTweet *)tweet completion:(void (^)(DRTweet *tweet, NSError *error))completion {
+    [self POST:@"1.1/favorites/create.json"
+    parameters:@{@"id": tweet.tweetID}
+       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+           BLOCK_SAFE_RUN(completion, [[DRTweet alloc] initWithDictionary:responseObject], nil);
+       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+           BLOCK_SAFE_RUN(completion, nil, error);
+       }];
+}
+
+- (void)unretweet:(DRTweet *)originalTweet
+       completion:(void (^)(DRTweet *retweet, NSError *error))completion {
+    [self POST:[NSString stringWithFormat:@"1.1/statuses/destroy/%@.json", originalTweet.tweetID]
+    parameters:nil
+       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+           BLOCK_SAFE_RUN(completion, [[DRTweet alloc] initWithDictionary:responseObject], nil);
+       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+           BLOCK_SAFE_RUN(completion, nil, error);
+       }];
+}
+
+- (void)unfavorite:(DRTweet *)tweet
+        completion:(void (^)(DRTweet *tweet, NSError *error))completion {
+    [self POST:@"1.1/favorites/destroy.json"
+    parameters:@{@"id": tweet.tweetID}
+       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+           BLOCK_SAFE_RUN(completion, [[DRTweet alloc] initWithDictionary:responseObject], nil);
+       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+           BLOCK_SAFE_RUN(completion, nil, error);
+       }];
 }
 
 @end

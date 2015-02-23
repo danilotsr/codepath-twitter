@@ -8,6 +8,8 @@
 
 #import "DRTweetCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DRTwitterClient.h"
+#import "DRComposeViewController.h"
 
 @interface DRTweetCell()
 
@@ -18,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *ownerHandleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+
+@property (nonatomic, strong, readonly) DRTweet *originalTweet;
 
 @property (nonatomic, assign) BOOL showRetweetedView;
 
@@ -41,27 +48,34 @@
     // Configure the view for the selected state
 }
 
-- (void)setTweet:(DRTweet *)rawTweet {
-    _tweet = rawTweet;
+- (DRTweet *)originalTweet {
+    return [self.tweet wasRetweeded] ? self.tweet.retweetSource : self.tweet;
+}
 
-    DRTweet *tweet = rawTweet;
+- (void)setTweet:(DRTweet *)tweet {
+    _tweet = tweet;
 
-    if ([rawTweet wasRetweeded]) {
-        tweet = rawTweet.retweetSource;
-        self.retweetedLabel.text = [NSString stringWithFormat:@"%@ retweeted", rawTweet.user.name];
+    if ([self.tweet wasRetweeded]) {
+        self.retweetedLabel.text = [NSString stringWithFormat:@"%@ retweeted", self.tweet.user.name];
     }
-    self.retweetedLabel.hidden = ![rawTweet wasRetweeded];
-    self.retweetIcon.hidden = ![rawTweet wasRetweeded];
+    self.retweetedLabel.hidden = ![self.tweet wasRetweeded];
+    self.retweetIcon.hidden = ![self.tweet wasRetweeded];
 
-    self.messageLabel.text = tweet.text;
-    self.ownerNameLabel.text = tweet.user.name;
-    self.ownerHandleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
+    self.messageLabel.text = self.originalTweet.text;
+    self.ownerNameLabel.text = self.originalTweet.user.name;
+    self.ownerHandleLabel.text = [NSString stringWithFormat:@"@%@", self.originalTweet.user.screenName];
 
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.user.profileImageURL]];
+    [self.profileImageView setImageWithURL:[NSURL URLWithString:self.originalTweet.user.profileImageURL]];
 
-    self.timestampLabel.text = [tweet shortCreatedAt];
+    self.timestampLabel.text = [self.originalTweet shortCreatedAt];
 
+    [self updateActionBar];
     [self setNeedsUpdateConstraints];
+}
+
+- (void)updateActionBar {
+    self.retweetButton.selected = self.originalTweet.retweeted;
+    self.favoriteButton.selected = self.originalTweet.favorited;
 }
 
 NSInteger const kTopMarginRetweeted = 8;
@@ -83,6 +97,28 @@ NSInteger const kTopMarginRegularTweet = -14;
         }
     }
     return nil;
+}
+
+- (IBAction)onReply:(id)sender {
+    [self.delegate replyWithTarget:self.tweet];
+}
+
+- (IBAction)onRetweet:(id)sender {
+    if (!self.retweetButton.selected) {
+        [self.delegate retweetWithTarget:self.tweet];
+    } else {
+        [self.delegate undoRetweetWithTarget:self.tweet];
+    }
+    [self updateActionBar];
+}
+
+- (IBAction)onFavorite:(id)sender {
+    if (!self.favoriteButton.selected) {
+        [self.delegate favoriteWithTarget:self.tweet];
+    } else {
+        [self.delegate unfavoriteWithTarget:self.tweet];
+    }
+    [self updateActionBar];
 }
 
 @end

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DRTweet.h"
+#import "DRTweetDelegate.h"
 
 @interface DRTweetCell : UITableViewCell
 
 @property (nonatomic, strong) DRTweet *tweet;
+@property (nonatomic, weak) id<DRTweetDelegate> delegate;
 
 @end

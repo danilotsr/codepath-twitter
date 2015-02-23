@@ -18,6 +18,21 @@
 - (void)openURL:(NSURL *)url;
 
 - (void)homeTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion;
-- (void)postStatusWithMessage:(NSString *)message completion:(void (^)(DRTweet *tweet, NSError *error))completion;
+
+- (void)postStatusWithMessage:(NSString *)message
+                  replyTarget:(DRTweet *)replyTarget
+                   completion:(void (^)(DRTweet *tweet, NSError *error))completion;
+
+- (void)retweet:(DRTweet *)originalTweet
+     completion:(void (^)(DRTweet *retweet, NSError *error))completion;
+
+- (void)favorite:(DRTweet *)tweet
+      completion:(void (^)(DRTweet *tweet, NSError *error))completion;
+
+- (void)unretweet:(DRTweet *)originalTweet
+       completion:(void (^)(DRTweet *retweet, NSError *error))completion;
+
+- (void)unfavorite:(DRTweet *)tweet
+        completion:(void (^)(DRTweet *tweet, NSError *error))completion;
 
 @end

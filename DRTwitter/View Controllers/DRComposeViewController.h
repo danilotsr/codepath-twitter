@@ -21,4 +21,6 @@
 
 @property (nonatomic, weak) id<DRComposeViewControllerDelegate> delegate;
 
+- (id)initWithReplyTarget:(DRTweet *)replyTarget;
+
 @end

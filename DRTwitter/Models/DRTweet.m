@@ -13,6 +13,7 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
+        self.tweetID = dictionary[@"id_str"];
         self.text = dictionary[@"text"];
         NSString *createdAtString = dictionary[@"created_at"];
 
@@ -28,6 +29,9 @@
 
         self.retweetsCount = [dictionary[@"retweet_count"] integerValue];
         self.favoritesCount = [dictionary[@"favorite_count"] integerValue];
+
+        self.retweeted = [dictionary[@"retweeted"] boolValue];
+        self.favorited = [dictionary[@"favorited"] boolValue];
     }
     return self;
 }
@@ -57,6 +61,10 @@
 
 - (BOOL)wasRetweeded {
     return self.retweetSource != nil;
+}
+
+- (DRTweet *)originalTweet {
+    return [self wasRetweeded] ? self.retweetSource : self;
 }
 
 @end

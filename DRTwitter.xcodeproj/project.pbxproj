@@ -46,6 +46,7 @@
 		82213C241A9A3FFD00E8BA7B /* DRTweetDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTweetDetailsViewController.h; path = "View Controllers/DRTweetDetailsViewController.h"; sourceTree = "<group>"; };
 		82213C251A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTweetDetailsViewController.m; path = "View Controllers/DRTweetDetailsViewController.m"; sourceTree = "<group>"; };
 		82213C261A9A3FFD00E8BA7B /* DRTweetDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRTweetDetailsViewController.xib; path = "View Controllers/DRTweetDetailsViewController.xib"; sourceTree = "<group>"; };
+		82213C291A9AFE2000E8BA7B /* DRTweetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTweetDelegate.h; path = Views/DRTweetDelegate.h; sourceTree = "<group>"; };
 		824DCA591A983B9C001A4799 /* DRSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRSessionManager.h; path = Models/DRSessionManager.h; sourceTree = "<group>"; };
 		824DCA5A1A983B9C001A4799 /* DRSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRSessionManager.m; path = Models/DRSessionManager.m; sourceTree = "<group>"; };
 		824DCA5C1A98757F001A4799 /* DRTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRTweetCell.xib; path = Views/DRTweetCell.xib; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 				82EF386D1A96DC8B00B3710A /* DRTweetCell.h */,
 				82EF386E1A96DC8B00B3710A /* DRTweetCell.m */,
 				824DCA5C1A98757F001A4799 /* DRTweetCell.xib */,
+				82213C291A9AFE2000E8BA7B /* DRTweetDelegate.h */,
 			);
 			name = Views;
 			sourceTree = "<group>";

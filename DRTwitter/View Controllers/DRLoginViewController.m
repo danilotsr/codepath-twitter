@@ -33,14 +33,14 @@ NSString * const kTwitterAuthorizeURL = @"https://api.twitter.com/oauth/authoriz
         if (user) {
             DRTweetsViewController *tweetsVC = [[DRTweetsViewController alloc] initWithUser:user];
             UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:tweetsVC];
-            [self presentViewController:navigationVC animated:YES completion:nil];
+            [self.navigationController presentViewController:navigationVC animated:YES completion:nil];
         } else {
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Unable to login"
                                                                              message:error.localizedDescription
                                                                       preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
             [alertVC addAction:alertAction];
-            [self presentViewController:alertVC animated:YES completion:nil];
+            [self.navigationController presentViewController:alertVC animated:YES completion:nil];
         }
     }];
 }
