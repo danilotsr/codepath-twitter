@@ -29,6 +29,9 @@ Time spent: 15 hours
 #### Extra
 
 - [x] Persist draft tweet message while it is not posted.
+- [x] When replying to a retweet, prefix the new message with two screen names: the original author and the retweeted one.
+- [x] Support singular/plural texts for "retweets" and "favorites".
+- [x] Clean up persisted state (logged-in user and pending message) on logout.
 
 ### Walkthrough
 
