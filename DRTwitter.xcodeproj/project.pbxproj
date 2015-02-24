@@ -283,6 +283,7 @@
 				TargetAttributes = {
 					825D6F391A96DA1300D79498 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 777W53UFB2;
 					};
 					825D6F551A96DA1300D79498 = {
 						CreatedOnToolsVersion = 6.1;
@@ -497,6 +498,7 @@
 			baseConfigurationReference = 4BC0570491BBE56C6D90738C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DRTwitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,6 +510,7 @@
 			baseConfigurationReference = 80D422A705D3662B47BCE2C0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DRTwitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

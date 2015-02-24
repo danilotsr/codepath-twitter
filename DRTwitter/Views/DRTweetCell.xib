@@ -28,34 +28,28 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mug-LQ-zZI">
-                        <rect key="frame" x="8" y="30" width="50" height="50"/>
+                        <rect key="frame" x="8" y="31" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="EM3-cs-BNK"/>
                             <constraint firstAttribute="width" constant="50" id="kVQ-XF-6ZU"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Michael Moran" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1b2-an-RY3">
-                        <rect key="frame" x="66" y="30" width="97.5" height="17"/>
+                        <rect key="frame" x="66" y="31" width="97.5" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" text="@TheMichaelMoran" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERV-pu-NBC">
-                        <rect key="frame" x="169" y="31" width="109.5" height="14.5"/>
+                        <rect key="frame" x="169" y="32" width="109.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="4h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-1U-3iK">
-                        <rect key="frame" x="298" y="31" width="14" height="14.5"/>
+                        <rect key="frame" x="298" y="32" width="14" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know you can tell if someone is a programmer simply by saying the word &quot;timezones&quot; and seeing if they cringe?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-o8-fqO">
-                        <rect key="frame" x="66" y="52" width="246" height="43"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp2-Oa-Z5g">
@@ -132,61 +126,78 @@
                             <action selector="onFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hiA-sg-KaY"/>
                         </connections>
                     </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="The padding appears at the beginning and end of the line fragment rectangles." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CEB-HR-UJk">
+                        <rect key="frame" x="66" y="53" width="232" height="45"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1FQ-1m-wWr"/>
                     <constraint firstAttribute="trailing" secondItem="A9c-1U-3iK" secondAttribute="trailing" constant="8" id="1sd-dk-WtR"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="top" id="2wE-ug-ptm"/>
-                    <constraint firstAttribute="bottom" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="2zv-Lj-kbj"/>
                     <constraint firstItem="Sq6-bj-CeO" firstAttribute="centerY" secondItem="2Q0-eS-dk2" secondAttribute="centerY" id="3Vi-n8-OML"/>
+                    <constraint firstItem="CEB-HR-UJk" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="8" id="3di-he-QE9"/>
+                    <constraint firstItem="CEB-HR-UJk" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="8" id="5nS-Zr-ILx"/>
                     <constraint firstAttribute="bottom" secondItem="Cp2-Oa-Z5g" secondAttribute="bottom" constant="8" id="69n-ec-a1w"/>
-                    <constraint firstItem="zhA-o8-fqO" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="8" id="6gz-uI-LbK"/>
                     <constraint firstItem="2Q0-eS-dk2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="44" id="6nw-Ku-2vJ"/>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="2Q0-eS-dk2" secondAttribute="bottom" constant="8" id="6oD-Dk-vwd"/>
                     <constraint firstItem="Sq6-bj-CeO" firstAttribute="leading" secondItem="2Q0-eS-dk2" secondAttribute="trailing" constant="8" id="8BD-YE-MSm"/>
                     <constraint firstItem="e8t-AG-Gfh" firstAttribute="leading" secondItem="9Ou-rT-GYc" secondAttribute="trailing" constant="46" id="8YM-WV-8Xo"/>
+                    <constraint firstItem="CEB-HR-UJk" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="8" id="8cB-x7-OFv"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="5" id="8i2-8i-byJ"/>
+                    <constraint firstItem="CEB-HR-UJk" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="5" id="BUp-Up-apz"/>
                     <constraint firstItem="A9c-1U-3iK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ERV-pu-NBC" secondAttribute="trailing" constant="5" id="CY6-9P-kET"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Sq6-bj-CeO" secondAttribute="trailing" constant="8" id="Cc4-4h-BaK"/>
+                    <constraint firstItem="e8t-AG-Gfh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CEB-HR-UJk" secondAttribute="bottom" constant="5" id="CuB-cb-H1c"/>
+                    <constraint firstAttribute="trailing" secondItem="CEB-HR-UJk" secondAttribute="trailing" constant="8" id="Czo-KB-K1X"/>
                     <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="66" id="Ddz-ym-NQj"/>
+                    <constraint firstAttribute="trailing" secondItem="CEB-HR-UJk" secondAttribute="trailing" constant="8" id="EKm-Ia-YUW"/>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="top" id="HnJ-0V-qJc"/>
+                    <constraint firstItem="CEB-HR-UJk" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="8" id="K29-ot-4VR"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="top" secondItem="A9c-1U-3iK" secondAttribute="top" id="M9k-La-QI4"/>
-                    <constraint firstAttribute="trailing" secondItem="zhA-o8-fqO" secondAttribute="trailing" constant="8" id="OL3-3o-Xu8"/>
                     <constraint firstItem="2Q0-eS-dk2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="QiL-K2-kgo"/>
-                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2Q0-eS-dk2" secondAttribute="bottom" constant="8" id="TEw-fj-KbU"/>
+                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="2Q0-eS-dk2" secondAttribute="bottom" constant="9" id="TEw-fj-KbU"/>
                     <constraint firstItem="1b2-an-RY3" firstAttribute="centerY" secondItem="ERV-pu-NBC" secondAttribute="centerY" id="TmW-rd-ld0"/>
                     <constraint firstItem="A9c-1U-3iK" firstAttribute="centerY" secondItem="ERV-pu-NBC" secondAttribute="centerY" id="VTP-Ch-7vS"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="Z4t-T9-mwc"/>
-                    <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="ZRm-o5-erd"/>
+                    <constraint firstItem="mug-LQ-zZI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="aAu-9r-wZS"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CEB-HR-UJk" secondAttribute="trailing" constant="8" id="aLT-Ws-AT9"/>
+                    <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="top" secondItem="CEB-HR-UJk" secondAttribute="bottom" constant="8" id="aZs-gx-696"/>
                     <constraint firstItem="Sq6-bj-CeO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="66" id="bTY-e1-vNW"/>
                     <constraint firstItem="e8t-AG-Gfh" firstAttribute="centerY" secondItem="9Ou-rT-GYc" secondAttribute="centerY" id="f8Z-CR-Htg"/>
+                    <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="top" secondItem="CEB-HR-UJk" secondAttribute="bottom" constant="8" id="fK9-gf-NSI"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="top" secondItem="mug-LQ-zZI" secondAttribute="top" id="fRN-sC-eRG"/>
-                    <constraint firstItem="zhA-o8-fqO" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="8" id="fdE-Bk-RVQ"/>
                     <constraint firstItem="1b2-an-RY3" firstAttribute="top" secondItem="mug-LQ-zZI" secondAttribute="top" id="geZ-I8-1oM"/>
                     <constraint firstItem="9Ou-rT-GYc" firstAttribute="leading" secondItem="Cp2-Oa-Z5g" secondAttribute="trailing" constant="46" id="jHP-ek-1be"/>
                     <constraint firstItem="ERV-pu-NBC" firstAttribute="leading" secondItem="1b2-an-RY3" secondAttribute="trailing" constant="5" id="joo-SA-G9e"/>
+                    <constraint firstItem="CEB-HR-UJk" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="18" id="kyg-eI-Oth"/>
                     <constraint firstItem="1b2-an-RY3" firstAttribute="leading" secondItem="mug-LQ-zZI" secondAttribute="trailing" constant="8" id="l7o-RV-6DD"/>
                     <constraint firstItem="2Q0-eS-dk2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="one-yf-dNJ"/>
-                    <constraint firstItem="zhA-o8-fqO" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="5" id="pAJ-BR-guf"/>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="pSl-dz-MjJ"/>
                     <constraint firstItem="mug-LQ-zZI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="roe-1N-Xmd"/>
                     <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="centerY" secondItem="9Ou-rT-GYc" secondAttribute="centerY" id="tyU-wp-wm9"/>
                     <constraint firstItem="Sq6-bj-CeO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uM6-x5-7J7"/>
-                    <constraint firstAttribute="bottom" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="zIG-yA-agQ"/>
-                    <constraint firstItem="Cp2-Oa-Z5g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zhA-o8-fqO" secondAttribute="bottom" constant="8" id="zkQ-Pt-ezJ"/>
+                    <constraint firstItem="CEB-HR-UJk" firstAttribute="top" secondItem="1b2-an-RY3" secondAttribute="bottom" constant="17" id="uWW-iB-ad7"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="6oD-Dk-vwd"/>
                         <exclude reference="pSl-dz-MjJ"/>
+                        <exclude reference="roe-1N-Xmd"/>
                         <exclude reference="QiL-K2-kgo"/>
                         <exclude reference="uM6-x5-7J7"/>
                         <exclude reference="geZ-I8-1oM"/>
-                        <exclude reference="2zv-Lj-kbj"/>
-                        <exclude reference="Z4t-T9-mwc"/>
-                        <exclude reference="fdE-Bk-RVQ"/>
-                        <exclude reference="zIG-yA-agQ"/>
-                        <exclude reference="zkQ-Pt-ezJ"/>
+                        <exclude reference="3di-he-QE9"/>
+                        <exclude reference="8cB-x7-OFv"/>
+                        <exclude reference="Czo-KB-K1X"/>
+                        <exclude reference="EKm-Ia-YUW"/>
+                        <exclude reference="K29-ot-4VR"/>
+                        <exclude reference="kyg-eI-Oth"/>
+                        <exclude reference="uWW-iB-ad7"/>
+                        <exclude reference="aZs-gx-696"/>
+                        <exclude reference="fK9-gf-NSI"/>
                         <exclude reference="2wE-ug-ptm"/>
                         <exclude reference="8i2-8i-byJ"/>
                         <exclude reference="M9k-La-QI4"/>
@@ -196,7 +207,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="favoriteButton" destination="e8t-AG-Gfh" id="DtY-d5-4Yr"/>
-                <outlet property="messageLabel" destination="zhA-o8-fqO" id="rZ8-D8-6Pp"/>
                 <outlet property="ownerHandleLabel" destination="ERV-pu-NBC" id="veh-fm-zg7"/>
                 <outlet property="ownerNameLabel" destination="1b2-an-RY3" id="zyi-Td-leD"/>
                 <outlet property="profileImageView" destination="mug-LQ-zZI" id="9oE-0i-rdk"/>
@@ -204,9 +214,10 @@
                 <outlet property="retweetButton" destination="9Ou-rT-GYc" id="tw5-Dh-mpA"/>
                 <outlet property="retweetIcon" destination="2Q0-eS-dk2" id="N4N-XZ-QtY"/>
                 <outlet property="retweetedLabel" destination="Sq6-bj-CeO" id="oQR-5k-UW3"/>
+                <outlet property="textView" destination="CEB-HR-UJk" id="Gdp-Cb-xBR"/>
                 <outlet property="timestampLabel" destination="A9c-1U-3iK" id="pr0-dL-r5T"/>
             </connections>
-            <point key="canvasLocation" x="278" y="283.5"/>
+            <point key="canvasLocation" x="278" y="282.5"/>
         </tableViewCell>
     </objects>
     <resources>

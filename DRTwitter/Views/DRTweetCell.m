@@ -19,10 +19,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ownerHandleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @property (nonatomic, strong, readonly) DRTweet *originalTweet;
 
@@ -30,14 +30,11 @@
 
 @end
 
-//static NSInteger const kMessageLabelOffset = 74;
-
 @implementation DRTweetCell
 
 - (void)awakeFromNib {
     // Initialization code
 
-    self.messageLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.messageLabel.bounds);
     self.profileImageView.layer.cornerRadius = 8;
     self.profileImageView.clipsToBounds = YES;
 }
@@ -61,8 +58,12 @@
     self.retweetedLabel.hidden = ![self.tweet wasRetweeded];
     self.retweetIcon.hidden = ![self.tweet wasRetweeded];
 
-    self.messageLabel.text = self.originalTweet.text;
-    self.ownerNameLabel.text = self.originalTweet.user.name;
+
+    self.textView.text = nil;
+    self.textView.attributedText = [self.originalTweet textWithEntities];
+    self.textView.textContainerInset = UIEdgeInsetsZero;
+    self.textView.contentInset = UIEdgeInsetsMake(0, -4, 0, 0);
+
     self.ownerHandleLabel.text = [NSString stringWithFormat:@"@%@", self.originalTweet.user.screenName];
 
     [self.profileImageView setImageWithURL:[NSURL URLWithString:self.originalTweet.user.profileImageURL]];
@@ -119,6 +120,10 @@ NSInteger const kTopMarginRegularTweet = -14;
         [self.delegate unfavoriteWithTarget:self.tweet];
     }
     [self updateActionBar];
+}
+
+- (IBAction)onTapMessage:(id)sender {
+    NSLog(@"onTapMessage: %@", sender);
 }
 
 @end

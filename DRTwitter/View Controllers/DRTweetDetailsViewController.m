@@ -22,7 +22,6 @@ NSString * const kFavorites = @"FAVORITES";
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
@@ -31,6 +30,7 @@ NSString * const kFavorites = @"FAVORITES";
 @property (weak, nonatomic) IBOutlet UILabel *favoritesCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @property (nonatomic, strong, readonly) DRTweet *originalTweet;
 
@@ -55,8 +55,6 @@ NSString * const kFavorites = @"FAVORITES";
 
     self.navigationItem.title = @"Tweet";
 
-    self.messageLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.messageLabel.bounds);
-
     self.profileImageView.layer.cornerRadius = 8;
     self.profileImageView.clipsToBounds = YES;
 
@@ -66,7 +64,11 @@ NSString * const kFavorites = @"FAVORITES";
     self.retweetedLabel.hidden = ![self.tweet wasRetweeded];
     self.retweetedIcon.hidden = ![self.tweet wasRetweeded];
 
-    self.messageLabel.text = self.originalTweet.text;
+    self.textView.text = nil;
+    self.textView.attributedText = [self.originalTweet textWithEntities];
+    self.textView.textContainerInset = UIEdgeInsetsZero;
+    self.textView.contentInset = UIEdgeInsetsMake(0, -4, 0, 0);
+
     self.nameLabel.text = self.originalTweet.user.name;
     self.userNameLabel.text = [NSString stringWithFormat:@"@%@", self.originalTweet.user.screenName];
 
@@ -87,8 +89,8 @@ NSString * const kFavorites = @"FAVORITES";
 - (void)updateCountersView {
     self.retweetsLabel.text = self.originalTweet.retweetsCount > 1 ? kRetweets : kRetweet;
     self.favoritesLabel.text = self.originalTweet.favoritesCount > 1 ? kFavorites : kFavorite;
-    self.retweetsCountLabel.text = [NSString stringWithFormat:@"%ld", self.originalTweet.retweetsCount];
-    self.favoritesCountLabel.text = [NSString stringWithFormat:@"%ld", self.originalTweet.favoritesCount];
+    self.retweetsCountLabel.text = [NSString stringWithFormat:@"%d", self.originalTweet.retweetsCount];
+    self.favoritesCountLabel.text = [NSString stringWithFormat:@"%d", self.originalTweet.favoritesCount];
 
     self.retweetButton.selected = self.originalTweet.retweeted;
     self.favoriteButton.selected = self.originalTweet.favorited;

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DRUser.h"
+#import <UIKit/NSAttributedString.h>
 
 @interface DRTweet : NSObject
 
@@ -20,11 +21,18 @@
 @property (nonatomic, assign) NSInteger favoritesCount;
 @property (nonatomic, assign) BOOL retweeted;
 @property (nonatomic, assign) BOOL favorited;
+@property (nonatomic, strong) NSArray *urls;
+@property (nonatomic, strong) NSArray *hashtags;
+@property (nonatomic, strong) NSArray *userMentions;
+
++ (NSArray *)tweetsWithArray:(NSArray *)array;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-+ (NSArray *)tweetsWithArray:(NSArray *)array;
+
 - (NSString *)shortCreatedAt;
 - (BOOL)wasRetweeded;
 - (DRTweet *)originalTweet;
+- (NSArray *)entitiesMetadata;
+- (NSAttributedString *)textWithEntities;
 
 @end

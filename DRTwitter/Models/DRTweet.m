@@ -32,6 +32,10 @@
 
         self.retweeted = [dictionary[@"retweeted"] boolValue];
         self.favorited = [dictionary[@"favorited"] boolValue];
+
+        self.urls = dictionary[@"entities"][@"urls"];
+        self.hashtags = dictionary[@"entities"][@"hashtags"];
+        self.userMentions = dictionary[@"entities"][@"user_mentions"];
     }
     return self;
 }
@@ -65,6 +69,84 @@
 
 - (DRTweet *)originalTweet {
     return [self wasRetweeded] ? self.retweetSource : self;
+}
+
+- (NSArray *)entitiesMetadata {
+    // TODO: move this to the setter so that it is done only once
+    NSMutableArray *replacements = [NSMutableArray array];
+
+    for (NSDictionary *urlDict in self.originalTweet.urls) {
+        NSUInteger offset = [urlDict[@"indices"][0] unsignedIntegerValue];
+        NSUInteger end = [urlDict[@"indices"][1] unsignedIntegerValue];
+        NSDictionary *replacementDict = @{@"offset": @(offset),
+                                          @"length": @(end - offset),
+                                          @"display": urlDict[@"display_url"],
+                                          @"url": urlDict[@"url"]};
+        [replacements addObject:replacementDict];
+    }
+
+    for (NSDictionary *hashtagDict in self.originalTweet.hashtags) {
+        NSUInteger offset = [hashtagDict[@"indices"][0] unsignedIntegerValue];
+        NSUInteger end = [hashtagDict[@"indices"][1] unsignedIntegerValue];
+        NSString *text = hashtagDict[@"text"];
+
+        NSString *hashtagUrl = [NSString stringWithFormat:@"https://twitter.com/hashtag/%@", text];
+
+        [replacements addObject:@{@"offset": @(offset),
+                                  @"length": @(end - offset),
+                                  @"display": text,
+                                  @"url": hashtagUrl}];
+    }
+
+    for (NSDictionary *userDict in self.originalTweet.userMentions) {
+        NSUInteger offset = [userDict[@"indices"][0] unsignedIntegerValue];
+        NSUInteger end = [userDict[@"indices"][1] unsignedIntegerValue];
+        NSString *screenName = userDict[@"screen_name"];
+
+        NSString *userUrl = [NSString stringWithFormat:@"https://twitter.com/%@", screenName];
+
+        [replacements addObject:@{@"offset": @(offset),
+                                  @"length": @(end - offset),
+                                  @"display": [NSString stringWithFormat:@"@%@", screenName],
+                                  @"url": userUrl}];
+    }
+
+    return [replacements sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *dict1, NSDictionary *dict2) {
+        if ([dict1[@"offset"] integerValue] < [dict2[@"offset"] integerValue]) {
+            return NSOrderedAscending;
+        } else if ([dict1[@"offset"] integerValue] > [dict2[@"offset"] integerValue]) {
+            return NSOrderedDescending;
+        }
+        return NSOrderedSame;
+    }];
+}
+
+- (NSAttributedString *)textWithEntities {
+    NSArray *entitiesMetadata = [self.originalTweet entitiesMetadata];
+
+    NSMutableString *formattedText = [NSMutableString stringWithString:self.originalTweet.text];
+    NSInteger lengthDiff = 0;
+    for (NSDictionary *dict in entitiesMetadata) {
+        NSInteger offset = [dict[@"offset"] integerValue] + lengthDiff;
+        NSInteger length = [dict[@"length"] integerValue];
+        NSString *display = dict[@"display"];
+        [formattedText replaceCharactersInRange:NSMakeRange(offset, length) withString:display];
+        lengthDiff += display.length - length;
+    }
+
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:formattedText];
+    [attributedString beginEditing];
+    lengthDiff = 0;
+    for (NSDictionary *linkDict in entitiesMetadata) {
+        NSInteger offset = [linkDict[@"offset"] integerValue] + lengthDiff;
+        NSInteger length = [linkDict[@"length"] integerValue];
+        NSString *display = linkDict[@"display"];
+        NSURL *url = [NSURL URLWithString:linkDict[@"url"]];
+        [attributedString addAttribute:NSLinkAttributeName value:url range:NSMakeRange(offset, display.length)];
+        lengthDiff += display.length - length;
+    }
+    [attributedString endEditing];
+    return attributedString;
 }
 
 @end
