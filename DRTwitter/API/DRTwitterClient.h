@@ -19,6 +19,13 @@
 
 - (void)homeTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion;
 
+- (void)timelineForUser:(DRUser *)user
+             withParams:(NSDictionary *)params
+             completion:(void (^)(NSArray *tweets, NSError *error))completion;
+
+- (void)userMentionsWithParams:(NSDictionary *)params
+                    completion:(void (^)(NSArray *tweets, NSError *error))completion;
+
 - (void)postStatusWithMessage:(NSString *)message
                   replyTarget:(DRTweet *)replyTarget
                    completion:(void (^)(DRTweet *tweet, NSError *error))completion;

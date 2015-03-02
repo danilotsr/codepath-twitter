@@ -8,9 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "DRUser.h"
+#import "DRTweetDelegate.h"
+
+@class DRTweetsViewController;
+
+@protocol DRTweetsViewDataSource <NSObject>
+
+- (void)tweetsViewController:(DRTweetsViewController *)tweetsViewController
+  recentTweetsWithCompletion:(void (^)(NSArray *tweets, NSError *error))completion;
+
+- (void)tweetsViewController:(DRTweetsViewController *)tweetsViewController
+                 tweetsAfter:(DRTweet *)tweet
+              withCompletion:(void (^)(NSArray *tweets, NSError *error))completion;
+
+@end
 
 @interface DRTweetsViewController : UIViewController
 
-- (id)initWithUser:(DRUser *)user;
+@property (weak, nonatomic) id<DRTweetsViewDataSource> dataSource;
+@property (weak, nonatomic) id<DRTweetDelegate> delegate;
+
+- (void)reloadData;
+- (void)setTableHeader:(UIView *)headerView;
 
 @end

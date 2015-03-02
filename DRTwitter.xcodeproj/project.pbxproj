@@ -24,6 +24,18 @@
 		8293A2171A971623007A860A /* DRTwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8293A2161A971623007A860A /* DRTwitterClient.m */; };
 		8293A21E1A971F4F007A860A /* DRTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8293A21D1A971F4F007A860A /* DRTweet.m */; };
 		8293A2211A971F5F007A860A /* DRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8293A2201A971F5F007A860A /* DRUser.m */; };
+		82AD0D311AA3FCF00066BDB3 /* DRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AD0D2F1AA3FCF00066BDB3 /* DRHomeViewController.m */; };
+		82AD0D361AA4036D0066BDB3 /* DRUserMentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AD0D341AA4036D0066BDB3 /* DRUserMentionsViewController.m */; };
+		82AD0D371AA4036D0066BDB3 /* DRUserMentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AD0D351AA4036D0066BDB3 /* DRUserMentionsViewController.xib */; };
+		82BE932B1A9D934800B8BFB4 /* DRSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BE93291A9D934800B8BFB4 /* DRSlideViewController.m */; };
+		82BE932C1A9D934800B8BFB4 /* DRSlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82BE932A1A9D934800B8BFB4 /* DRSlideViewController.xib */; };
+		82C1DF5F1AA277F4000614B8 /* DRProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C1DF5E1AA277F4000614B8 /* DRProfileHeader.xib */; };
+		82C1DF621AA278DC000614B8 /* DRProfileHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C1DF611AA278DC000614B8 /* DRProfileHeader.m */; };
+		82CB10C81AA1609000A7163C /* DRMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CB10C61AA1609000A7163C /* DRMenuViewController.m */; };
+		82CB10C91AA1609000A7163C /* DRMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82CB10C71AA1609000A7163C /* DRMenuViewController.xib */; };
+		82CB10CC1AA1673B00A7163C /* DRMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CB10CB1AA1673B00A7163C /* DRMainViewController.m */; };
+		82CB10D01AA16E0B00A7163C /* DRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CB10CE1AA16E0B00A7163C /* DRProfileViewController.m */; };
+		82CB10D11AA16E0B00A7163C /* DRProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82CB10CF1AA16E0B00A7163C /* DRProfileViewController.xib */; };
 		82EF386A1A96DB9D00B3710A /* DRTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EF38681A96DB9D00B3710A /* DRTweetsViewController.m */; };
 		82EF386B1A96DB9D00B3710A /* DRTweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EF38691A96DB9D00B3710A /* DRTweetsViewController.xib */; };
 		82EF38701A96DC8B00B3710A /* DRTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EF386E1A96DC8B00B3710A /* DRTweetCell.m */; };
@@ -73,6 +85,26 @@
 		8293A21D1A971F4F007A860A /* DRTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTweet.m; path = Models/DRTweet.m; sourceTree = "<group>"; };
 		8293A21F1A971F5F007A860A /* DRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRUser.h; path = Models/DRUser.h; sourceTree = "<group>"; };
 		8293A2201A971F5F007A860A /* DRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRUser.m; path = Models/DRUser.m; sourceTree = "<group>"; };
+		82AD0D2E1AA3FCF00066BDB3 /* DRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRHomeViewController.h; path = "View Controllers/DRHomeViewController.h"; sourceTree = "<group>"; };
+		82AD0D2F1AA3FCF00066BDB3 /* DRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRHomeViewController.m; path = "View Controllers/DRHomeViewController.m"; sourceTree = "<group>"; };
+		82AD0D331AA4036D0066BDB3 /* DRUserMentionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRUserMentionsViewController.h; path = "View Controllers/DRUserMentionsViewController.h"; sourceTree = "<group>"; };
+		82AD0D341AA4036D0066BDB3 /* DRUserMentionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRUserMentionsViewController.m; path = "View Controllers/DRUserMentionsViewController.m"; sourceTree = "<group>"; };
+		82AD0D351AA4036D0066BDB3 /* DRUserMentionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRUserMentionsViewController.xib; path = "View Controllers/DRUserMentionsViewController.xib"; sourceTree = "<group>"; };
+		82AD0D381AA43F270066BDB3 /* DRNavigationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DRNavigationDelegate.h; path = "View Controllers/DRNavigationDelegate.h"; sourceTree = "<group>"; };
+		82BE93281A9D934800B8BFB4 /* DRSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRSlideViewController.h; path = "View Controllers/DRSlideViewController.h"; sourceTree = "<group>"; };
+		82BE93291A9D934800B8BFB4 /* DRSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRSlideViewController.m; path = "View Controllers/DRSlideViewController.m"; sourceTree = "<group>"; };
+		82BE932A1A9D934800B8BFB4 /* DRSlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRSlideViewController.xib; path = "View Controllers/DRSlideViewController.xib"; sourceTree = "<group>"; };
+		82C1DF5E1AA277F4000614B8 /* DRProfileHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRProfileHeader.xib; path = Views/DRProfileHeader.xib; sourceTree = "<group>"; };
+		82C1DF601AA278DC000614B8 /* DRProfileHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRProfileHeader.h; path = Views/DRProfileHeader.h; sourceTree = "<group>"; };
+		82C1DF611AA278DC000614B8 /* DRProfileHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRProfileHeader.m; path = Views/DRProfileHeader.m; sourceTree = "<group>"; };
+		82CB10C51AA1609000A7163C /* DRMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRMenuViewController.h; path = "View Controllers/DRMenuViewController.h"; sourceTree = "<group>"; };
+		82CB10C61AA1609000A7163C /* DRMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRMenuViewController.m; path = "View Controllers/DRMenuViewController.m"; sourceTree = "<group>"; };
+		82CB10C71AA1609000A7163C /* DRMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRMenuViewController.xib; path = "View Controllers/DRMenuViewController.xib"; sourceTree = "<group>"; };
+		82CB10CA1AA1673B00A7163C /* DRMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRMainViewController.h; path = "View Controllers/DRMainViewController.h"; sourceTree = "<group>"; };
+		82CB10CB1AA1673B00A7163C /* DRMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRMainViewController.m; path = "View Controllers/DRMainViewController.m"; sourceTree = "<group>"; };
+		82CB10CD1AA16E0B00A7163C /* DRProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRProfileViewController.h; path = "View Controllers/DRProfileViewController.h"; sourceTree = "<group>"; };
+		82CB10CE1AA16E0B00A7163C /* DRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRProfileViewController.m; path = "View Controllers/DRProfileViewController.m"; sourceTree = "<group>"; };
+		82CB10CF1AA16E0B00A7163C /* DRProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRProfileViewController.xib; path = "View Controllers/DRProfileViewController.xib"; sourceTree = "<group>"; };
 		82EF38671A96DB9D00B3710A /* DRTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRTweetsViewController.h; path = "View Controllers/DRTweetsViewController.h"; sourceTree = "<group>"; };
 		82EF38681A96DB9D00B3710A /* DRTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRTweetsViewController.m; path = "View Controllers/DRTweetsViewController.m"; sourceTree = "<group>"; };
 		82EF38691A96DB9D00B3710A /* DRTweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DRTweetsViewController.xib; path = "View Controllers/DRTweetsViewController.xib"; sourceTree = "<group>"; };
@@ -195,6 +227,23 @@
 				82213C241A9A3FFD00E8BA7B /* DRTweetDetailsViewController.h */,
 				82213C251A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m */,
 				82213C261A9A3FFD00E8BA7B /* DRTweetDetailsViewController.xib */,
+				82BE93281A9D934800B8BFB4 /* DRSlideViewController.h */,
+				82BE93291A9D934800B8BFB4 /* DRSlideViewController.m */,
+				82BE932A1A9D934800B8BFB4 /* DRSlideViewController.xib */,
+				82CB10C51AA1609000A7163C /* DRMenuViewController.h */,
+				82CB10C61AA1609000A7163C /* DRMenuViewController.m */,
+				82CB10C71AA1609000A7163C /* DRMenuViewController.xib */,
+				82CB10CA1AA1673B00A7163C /* DRMainViewController.h */,
+				82CB10CB1AA1673B00A7163C /* DRMainViewController.m */,
+				82CB10CD1AA16E0B00A7163C /* DRProfileViewController.h */,
+				82CB10CE1AA16E0B00A7163C /* DRProfileViewController.m */,
+				82CB10CF1AA16E0B00A7163C /* DRProfileViewController.xib */,
+				82AD0D2E1AA3FCF00066BDB3 /* DRHomeViewController.h */,
+				82AD0D2F1AA3FCF00066BDB3 /* DRHomeViewController.m */,
+				82AD0D331AA4036D0066BDB3 /* DRUserMentionsViewController.h */,
+				82AD0D341AA4036D0066BDB3 /* DRUserMentionsViewController.m */,
+				82AD0D351AA4036D0066BDB3 /* DRUserMentionsViewController.xib */,
+				82AD0D381AA43F270066BDB3 /* DRNavigationDelegate.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -228,6 +277,9 @@
 				82EF386E1A96DC8B00B3710A /* DRTweetCell.m */,
 				824DCA5C1A98757F001A4799 /* DRTweetCell.xib */,
 				82213C291A9AFE2000E8BA7B /* DRTweetDelegate.h */,
+				82C1DF601AA278DC000614B8 /* DRProfileHeader.h */,
+				82C1DF611AA278DC000614B8 /* DRProfileHeader.m */,
+				82C1DF5E1AA277F4000614B8 /* DRProfileHeader.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -315,7 +367,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CB10D11AA16E0B00A7163C /* DRProfileViewController.xib in Resources */,
+				82C1DF5F1AA277F4000614B8 /* DRProfileHeader.xib in Resources */,
+				82BE932C1A9D934800B8BFB4 /* DRSlideViewController.xib in Resources */,
 				82EF386B1A96DB9D00B3710A /* DRTweetsViewController.xib in Resources */,
+				82AD0D371AA4036D0066BDB3 /* DRUserMentionsViewController.xib in Resources */,
+				82CB10C91AA1609000A7163C /* DRMenuViewController.xib in Resources */,
 				825D6F511A96DA1300D79498 /* LaunchScreen.xib in Resources */,
 				8293A2131A971593007A860A /* DRLoginViewController.xib in Resources */,
 				824DCA5D1A98757F001A4799 /* DRTweetCell.xib in Resources */,
@@ -373,13 +430,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				82EF386A1A96DB9D00B3710A /* DRTweetsViewController.m in Sources */,
+				82AD0D311AA3FCF00066BDB3 /* DRHomeViewController.m in Sources */,
+				82AD0D361AA4036D0066BDB3 /* DRUserMentionsViewController.m in Sources */,
 				8293A2171A971623007A860A /* DRTwitterClient.m in Sources */,
 				825D6F431A96DA1300D79498 /* AppDelegate.m in Sources */,
+				82CB10C81AA1609000A7163C /* DRMenuViewController.m in Sources */,
+				82CB10CC1AA1673B00A7163C /* DRMainViewController.m in Sources */,
 				8293A21E1A971F4F007A860A /* DRTweet.m in Sources */,
 				8293A2121A971593007A860A /* DRLoginViewController.m in Sources */,
+				82C1DF621AA278DC000614B8 /* DRProfileHeader.m in Sources */,
 				82213C271A9A3FFD00E8BA7B /* DRTweetDetailsViewController.m in Sources */,
 				825D6F461A96DA1300D79498 /* DRTwitter.xcdatamodeld in Sources */,
 				824DCA5B1A983B9C001A4799 /* DRSessionManager.m in Sources */,
+				82CB10D01AA16E0B00A7163C /* DRProfileViewController.m in Sources */,
+				82BE932B1A9D934800B8BFB4 /* DRSlideViewController.m in Sources */,
 				82EF38701A96DC8B00B3710A /* DRTweetCell.m in Sources */,
 				8286833D1A9957DB0028D72D /* DRComposeViewController.m in Sources */,
 				8293A2211A971F5F007A860A /* DRUser.m in Sources */,

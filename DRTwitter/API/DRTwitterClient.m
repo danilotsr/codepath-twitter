@@ -8,7 +8,6 @@
 
 #import "DRTwitterClient.h"
 #import "DRSessionManager.h"
-#import "DRTweet.h"
 
 NSString * const kTwitterConsumerKey = @"B5d3bSLLRMkL6lSZ0UArW5UQ3";
 NSString * const kTwitterConsumerSecret = @"NDeJITK035Gjy6hp6yzVjK9aiHfwTguCgiYwnyShPfJbm24bEl";
@@ -78,6 +77,31 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
 
 - (void)homeTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
     [self GET:@"1.1/statuses/home_timeline.json"
+   parameters:params
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          BLOCK_SAFE_RUN(completion, [DRTweet tweetsWithArray:responseObject], nil);
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          BLOCK_SAFE_RUN(completion, nil, error);
+      }];
+}
+
+- (void)timelineForUser:(DRUser *)user
+             withParams:(NSDictionary *)params
+             completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    NSMutableDictionary *requestParams = [NSMutableDictionary dictionaryWithDictionary:params];
+    requestParams[@"screen_name"] = user.screenName;
+    [self GET:@"1.1/statuses/user_timeline.json"
+   parameters:requestParams
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          BLOCK_SAFE_RUN(completion, [DRTweet tweetsWithArray:responseObject], nil);
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          BLOCK_SAFE_RUN(completion, nil, error);
+      }];
+}
+
+- (void)userMentionsWithParams:(NSDictionary *)params
+                    completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/statuses/mentions_timeline.json"
    parameters:params
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
           BLOCK_SAFE_RUN(completion, [DRTweet tweetsWithArray:responseObject], nil);

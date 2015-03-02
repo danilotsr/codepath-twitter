@@ -142,8 +142,10 @@
         NSInteger length = [linkDict[@"length"] integerValue];
         NSString *display = linkDict[@"display"];
         NSURL *url = [NSURL URLWithString:linkDict[@"url"]];
-        [attributedString addAttribute:NSLinkAttributeName value:url range:NSMakeRange(offset, display.length)];
-        lengthDiff += display.length - length;
+        if (url) {
+            [attributedString addAttribute:NSLinkAttributeName value:url range:NSMakeRange(offset, display.length)];
+            lengthDiff += display.length - length;
+        }
     }
     [attributedString endEditing];
     return attributedString;

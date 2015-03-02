@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "DRTweetsViewController.h"
 #import "DRLoginViewController.h"
+#import "DRMainViewController.h"
 #import "DRTwitterClient.h"
 #import "DRTweet.h"
 #import "DRSessionManager.h"
+
 
 @interface AppDelegate ()
 
@@ -38,18 +39,18 @@
         [self userDidLogout];
     }
 
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (void)userDidLogin {
-    DRTweetsViewController *tweetsVC = [[DRTweetsViewController alloc] initWithUser:[DRSessionManager currentUser]];
-    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:tweetsVC];
-    self.window.rootViewController = navigationVC;
+    DRMainViewController *mainVC = [[DRMainViewController alloc] init];
+    self.window.rootViewController = mainVC;
+    [self.window makeKeyAndVisible];
 }
 
 - (void)userDidLogout {
     self.window.rootViewController = [[DRLoginViewController alloc] init];
+    [self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

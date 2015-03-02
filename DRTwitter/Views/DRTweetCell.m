@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "DRTwitterClient.h"
 #import "DRComposeViewController.h"
+#import "DRSessionManager.h"
 
 @interface DRTweetCell()
 
@@ -53,7 +54,8 @@
     _tweet = tweet;
 
     if ([self.tweet wasRetweeded]) {
-        self.retweetedLabel.text = [NSString stringWithFormat:@"%@ retweeted", self.tweet.user.name];
+        NSString *retweetActor = [self.tweet.user isEqual:[DRSessionManager currentUser]] ? @"you" : self.tweet.user.name;
+        self.retweetedLabel.text = [NSString stringWithFormat:@"%@ retweeted", retweetActor];
     }
     self.retweetedLabel.hidden = ![self.tweet wasRetweeded];
     self.retweetIcon.hidden = ![self.tweet wasRetweeded];
@@ -64,6 +66,7 @@
     self.textView.textContainerInset = UIEdgeInsetsZero;
     self.textView.contentInset = UIEdgeInsetsMake(0, -4, 0, 0);
 
+    self.ownerNameLabel.text = self.originalTweet.user.name;
     self.ownerHandleLabel.text = [NSString stringWithFormat:@"@%@", self.originalTweet.user.screenName];
 
     [self.profileImageView setImageWithURL:[NSURL URLWithString:self.originalTweet.user.profileImageURL]];
